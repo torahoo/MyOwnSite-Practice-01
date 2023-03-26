@@ -36,7 +36,7 @@
       </thead>
       <tbody>
       <tr th:each="member : ${members}">
-        <td th:text="${member.id}">회원번호</td>
+        <td th:text="${member.memberId}">회원번호</td>
         <td th:text="${member.memberEmail}">이메일</td>
         <td th:text=${member.memberNickName}>닉네임</td>
         <td th:text=${member.memberAge}>나이</td>
