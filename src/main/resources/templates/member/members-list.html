@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymleaf.org ">
+<head>
+  <meta charset="UTF-8">
+  <link href="../css/bootstrap.min.css"
+        th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="container" style="max-width: 600px">
+  <div class="py-5 text-center">
+    <h2>회원 목록</h2>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-primary float-end"
+              onclick="location.href='addForm.html'"
+              th:onclick="|location.href='@{/member/add}'|"
+              type="button">새로운 회원 등록
+      </button>
+    </div>
+  </div>
+  <hr class="my-4">
+  <div>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>회원번호</th>
+        <th>이메일</th>
+        <th>닉네임</th>
+        <th>나이</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="member : ${members}">
+        <td th:text="${member.id}">회원번호</td>
+        <td th:text="${member.memberEmail}">이메일</td>
+        <td th:text=${member.memberNickName}>닉네임</td>
+        <td th:text=${member.memberAge}>나이</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div> <!-- /container -->
+</body>
+</html>
