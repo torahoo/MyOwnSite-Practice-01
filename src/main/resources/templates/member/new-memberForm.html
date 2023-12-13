@@ -16,7 +16,7 @@
         <h2>회원가입 폼</h2>
     </div>
     <h4 class="mb-3">회원정보 입력</h4>
-    <form action="members-list.html" th:action="@{/controller/members/add}" method="post">
+    <form action="item.html" th:action method="post">
         <div>
             <label for="memberEmail">이메일</label>
             <input type="text" id="memberEmail" name="memberEmail" class="form-control" placeholder="이메일을 입력하세요">
@@ -31,7 +31,7 @@
         </div>
         <div>
             <label for="memberAge">나이</label>
-            <input type="text" id="memberAge" name="memberAge" class="form-control">
+            <input type="number" id="memberAge" name="memberAge" class="form-control">
         </div>
         <hr class="my-4">
         <div class="row">
@@ -40,8 +40,8 @@
             </div>
             <div class="col">
                 <button class="w-100 btn btn-secondary btn-lg"
-                        onclick="location.href='members-list.html'"
-                        th:onclick="|location.href='@{/member/members-list}'|"
+                        onclick="location.href='items.html'"
+                        th:onclick="|location.href='@{/basic/items}'|"
                         type="button">취소</button>
             </div>
         </div>
