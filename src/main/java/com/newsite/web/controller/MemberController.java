@@ -15,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Controller
 @Slf4j
@@ -57,7 +58,8 @@ public class MemberController {
 
     @PostMapping("/login")
     public String login (@ModelAttribute ("member") Member member, RedirectAttributes redirectAttributes) {
-        Member findMember = memberRepository.findById(member.getMemberId());
+        Member findMember = memberRepository.findById(member.getMemberId())
+                .orElseThrow(()->new NoSuchElementException("해당 멤버를 찾을수 없음"));
         if(member.getMemberEmail().equals(findMember.getMemberEmail())) {
             if(member.getPassword().equals(findMember.getPassword())) {
                 log.info("loginUser={}", findMember);
