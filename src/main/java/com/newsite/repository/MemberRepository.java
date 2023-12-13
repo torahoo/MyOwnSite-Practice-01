@@ -15,8 +15,8 @@ public class MemberRepository {
             return new ArrayList<>(store.values());
         }
 
-        public Member findById (long memberId) {
-            return store.get(memberId);
+        public Optional<Member> findById (long memberId) {
+            return Optional.of(store.get(memberId));
         }
 
         public Member save (Member member) {
@@ -35,6 +35,12 @@ public class MemberRepository {
         public void delete (long memberId) {
             Member findMember = findById(memberId);
             store.remove(memberId);
+        }
+
+        public Optional<Member> findByName(String name) {
+            return store.values().stream()
+                    .filter(member -> member.getName().equals(name))
+                    .findAny();
         }
 
         public void clearStroe () {

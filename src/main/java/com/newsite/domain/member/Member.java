@@ -15,6 +15,8 @@ public class Member {
     private String password;
     private Integer memberAge;
 
+    public Member () {}
+
     public Member(String memberEmail, String memberNickName, String password, Integer memberAge) {
         this.memberEmail = memberEmail;
         this.memberNickName = memberNickName;
